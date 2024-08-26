@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>test</title>
+        <style>
+            body div{
+                background-color: pink;
+                margin: 10px;
+            }
+            body>div{
+                background-color: skyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- css 우선순위
+        * < tag(1) < class(10) < id(100) < inline style < !important -->
+        <h1>로고</h1>
+        <h2>title</h2>
+        <h4>test</h4>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem fuga 
+            distinctio ut soluta eius nobis, quidem nisi culpa qui cumque atque quis harum, 
+            aut maxime accusantium expedita laboriosam perspiciatis enim?
+        </p>
+        <address>asd</address>
+        <hr />
+        <div>
+            <div>Lorem, ipsum.</div>
+            <div>Dolor, iste.</div>
+            <div>Consequuntur, consequatur.</div>
+        </div>
+        <ul>
+            <li>menu1
+                <ul class="submenu">
+                    <li><a href="">sub1</a></li>
+                    <li><a href="">sub1</a></li>
+                    <li><a href="">sub1</a></li>
+                    <li><a href="">sub1</a></li>
+                    <li><a href="">sub1</a></li>
+                    <li><a href="">sub1</a></li>
+                </ul>
+            </li>
+            <li>menu2</li>
+            <li>menu3</li>
+            <li>menu4</li>
+            <li>menu5</li>
+            <li>menu6</li>
+        </ul>
+        <a href="#">test</a>
+        <a href="#">test</a>
+        <img src="https://s.pstatic.net/shopping.phinf/20240823_27/17b279da-3850-4665-9eb4-6e9237375a8a.jpg?type=f294_378" alt="">
+        <span>test</span>
+        <div style="width: 100px;">
+            <div>test</div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Voluptas delectus sapiente <span style="color: red;">aspernatur</span> fugit laudantium 
+                exercitationem quas dolore eum eveniet at? Explicabo 
+                aliquid fugiat inventore ab corporis similique quod repudiandae ducimus.
+            </p>
+        </div>
+    </body>
+</html>

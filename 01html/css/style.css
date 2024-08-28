@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.container{
+    width: 1360px;
+    margin: 0 auto;
+}
+/* css 미리 만들어놓고 class에 끼워넣기 */
+.bg-gray{
+    background-color: #ddd !important;
+}
+.bg-orange{
+    background-color: orange !important;
+}
+.bg-sky{
+    background-color: skyblue !important;
+}
+
+.hd{
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 플랙스는 부모상속 */
+.menuWrap{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* height: 70px; */
+    padding: 10px 0;
+}
+
+.menuWrap .gnb ul{ display: flex;}
+.menuWrap .gnb li{ width: 150px;height: 70px; }
+.menuWrap .gnb a{
+    display: block;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menuWrap .gnb a:hover{
+    font-weight: bold;
+}
+
+.menuWrap .sns{
+    display: flex;
+    align-self: center;
+    gap:10px
+}
+.menuWrap .sns li{
+    width: 40px;height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: skyblue;
+    color: white;
+}
+
+.visual{
+    height: 400px;
+}

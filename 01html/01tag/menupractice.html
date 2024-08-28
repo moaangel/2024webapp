@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        a:link, a:visited{
+            text-decoration: none;
+            color: black;
+        }
+        .clear{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        ul li{
+            list-style: none;
+        }
+        .hd{
+            background-color: blue;
+        }
+        .menuWrap{
+            width: 1360px;
+            margin: 0 auto;
+            background-color: skyblue;
+            padding: 10px 0;
+
+        }
+        .menuWrap>h1{
+            float: left;
+            display: flex;
+            background-color: blue;
+            height: 50px;
+            font-size: 20px;
+            width: 150px;
+            justify-content: center;
+            align-items: center;
+        }
+        .menuWrap>.gmn>ul>li{
+            float: left;
+            background-color: green;
+            width: 100px;
+            height: 50px;
+        }
+        .menuWrap .gmn a{
+            display: flex;
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .menuWrap .gmn a:hover{
+            background-color: blueviolet;
+            
+        }
+        .menuWrap>.gmn{
+            float: right;
+        }
+
+
+        .visual{
+            background-color: skyblue;
+        }
+        .bx-wrapper {
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            border: 0 none;
+            background: #fff;
+        }
+        .visual .item{
+            height: 300px;
+            /* background-color: skyblue; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header class="hd">
+        <div class="menuWrap clear">
+            <h1>logo</h1>
+            <nav class="gmn">
+                <ul class="clear">
+                    <li><a href="#">menu1</a></li>
+                    <li><a href="#">menu2</a></li>
+                    <li><a href="#">menu3</a></li>
+                    <li><a href="#">menu4</a></li>
+                    <li><a href="#">menu5</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="visual">
+        <ul class="slide">
+            <li class="item n1"><img src="./images/banner01.jpg" alt=""></li>
+            <li class="item n2"><img src="./images/banner02.jpg" alt=""></li>
+            <li class="item n3"><img src="./images/banner03.jpg" alt=""></li>
+        </ul>
+    </div>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.17/jquery.bxslider.min.js" integrity="sha512-LaBO0tZh1+6Ebk+EnHt/WsGM0UnmkCXfQ1rfhGmpa5MXUdslNuSSELBRcteHKz4k4ny+Op10Ax2fPoTNq+VcUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(".slide").bxSlider({
+            auto:true
+        });
+
+    </script>
+
+</body>
+</html>

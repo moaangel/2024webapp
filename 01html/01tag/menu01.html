@@ -32,7 +32,7 @@
         }
         .menuwrap>h1{
             float: left;font-size: 20px;
-            /* background-color: blue; */
+            background-color: blue;
             height: 50px;
             display: flex;
             justify-content: center;
@@ -75,11 +75,34 @@
         }
         .visual .item{
             height: 300px;
-            background-color: skyblue;
+            /* background-color: skyblue; */
             display: flex;
             justify-content: center;
             align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
+
+        .visual .item.st1{
+            background-image: url(./images/banner01.jpg);
+        }
+        .visual .item.st2{
+            background-image: url(./images/banner02.jpg);
+        }
+        .visual .item.st3{
+            background-image: url(./images/banner03.jpg);
+        }
+        
+        .visual .item .textWrap{
+            width: 1360px;
+            padding-left: 20px;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .mg10{margin-bottom: 10px !important;}
+        .mg20{margin-bottom: 20px !important;}
+        .mg30{margin-bottom: 30px !important;}
     </style>
 </head>
 <body>
@@ -100,13 +123,22 @@
     <div class="visual">
         <ul class="slide">
             <li class="item st1">test1
-                <!-- <img src="./images/banner01.jpg" alt=""> -->
+                <div class="textWrap">
+                    <h3 class="mb20">Lorem, ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit. Pariatur fuga consequuntur a.</p>
+                </div>
             </li>
             <li class="item st2">test2
-                <!-- <img src="./images/banner01.jpg" alt=""> -->
+                <div class="textWrap">
+                    <h3 class="mb20">Lorem, ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit. Pariatur fuga consequuntur a.</p>
+                </div>            
             </li>
             <li class="item st3">test3
-                <!-- <img src="./images/banner01.jpg" alt=""> -->
+                <div class="textWrap">
+                    <h3 class="mb20">Lorem, ipsum.</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur,<br> adipisicing elit. Pariatur fuga consequuntur a.</p>
+                </div>
             </li>
             
         </ul>

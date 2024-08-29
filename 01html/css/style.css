@@ -244,13 +244,13 @@ body{
 }
 
 .visual .item.st1{
-    background-image: url(/01html/01tag/images/bn1.jpg);
+    background-image: url(../01tag/images/bn1.jpg);
 }
 .visual .item.st2{
-    background-image: url(/01html/01tag/images/bn2.jpg);
+    background-image: url(../01tag/images/bn2.jpg);
 }
 .visual .item.st3{
-    background-image: url(/01html/01tag/images/bn3.jpg);
+    background-image: url(../01tag/images/bn3.jpg);
 }
 
 

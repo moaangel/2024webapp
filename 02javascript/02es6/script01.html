@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    변수 let,const
+    함수 arrow function
+    배열 spread operator
+    반복문 for of / map
+    class
+    promiss 동기, 비동기 - async await
+    module 
+
+    <script>
+        let han = 2;
+        han = 10;
+        console.log(han)
+
+        // const obj = function(){
+        //     console.log(han)
+        // }
+
+        const obj = (x,y)=> {
+            return x+y;
+        }
+        var asd = obj(10,20);
+        console.log(asd)
+
+        const a = [1,2,3];
+        const b = [...a];
+        b[0]= 10;
+        console.log("a = " +a);
+        console.log("b = " +b);
+
+        for(const item of a){
+            console.log(item);
+        }
+        // ==
+        for(let i =0; i<a.length; i++){
+            console.log(a[i]);
+        }
+    </script>
+
+</body>
+</html>

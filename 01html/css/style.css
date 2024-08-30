@@ -22,6 +22,20 @@ body{
     display: block;
     unicode-bidi: isolate;
 }
+.hd::before{
+    z-index: 1;
+    height: 1px;
+    background: #f0f1f2
+}
+.hd:after{
+    overflow: hidden;
+    display: block;
+    height: 100px;
+    background: rgb(255, 255, 255);
+}
+header.hd:hover {
+    background: rgba(255, 255, 255, 1);
+}
 
 .hdWrap{
     width: 1280px;
@@ -85,6 +99,9 @@ body{
     border-bottom: 4px solid #ffd44a;
 }
 
+.hd:after .menu-list:hover{
+    overflow: visible;
+}
 .menu-list:hover .sub-menu{
     visibility: visible;
 }
@@ -109,12 +126,9 @@ body{
     text-align: left;
     transform: translateY(-30px);
     visibility: hidden;
+    background-color: white;
 }
 
-.hd::after{
-
-    background-color: #fff;
-}
 
 .container{
     width: 1280px;
@@ -215,6 +229,7 @@ body{
 }
 
 .banner .card .card-text h3{
+    font-size: 21px;
     margin-bottom: 10px;
 }
 

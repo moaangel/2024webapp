@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(1);
+        setTimeout(function(){
+            console.log(2);
+        },1000);
+        console.log(3);
+//promise 성공 or 실패 return
+        const pro = new Promise(function(resolve,reject){ //성공,실패
+            setTimeout(function(){
+                resolve("hi");
+            },3000);
+        });
+        
+        pro.then(function(value){
+            console.log(value);
+            document.getElementById("demo").innerHTML =value;
+        })
+
+        async function fn1(){
+            await setTimeout();
+        }
+
+    </script>
+</body>
+</html>

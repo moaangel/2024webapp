@@ -10,7 +10,7 @@ body {
 .container {
    width: 1300px;
    margin: 0 auto;
-   background: $primary-color;
+   //    background: $primary-color;
 
    // 미디어쿼리 화면 크기별 반응형앱 제작
    @media screen and (max-width: 1300px) {

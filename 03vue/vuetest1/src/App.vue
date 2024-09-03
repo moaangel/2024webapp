@@ -1,31 +1,22 @@
 <template>
-   <div class="container">
-      <h2>HOT & NEW</h2>
-      <div class="cardWrap">
-         <div class="card" v-for="(item, i) in data" v-bind:key="i">
-            <div class="imgWrap">
-               <img :src="`./images/${item.img}`" alt="`${item.img}`" />
-               <div class="hot" v-if="item.like >= 5 ? true : false">HOT</div>
-            </div>
-            <div class="cardBody">
-               <h4>{{ item.title }}</h4>
-               <p>❤️ {{ item.num }}</p>
-               <p>대여 : {{ item.won }}</p>
-               <p>👍 {{ item.like }} <button @:click="increseLike(i)">클릭</button></p>
-            </div>
-         </div>
-      </div>
-   </div>
+   <NavbarView />
+   <ContainerView :data="data" @likeUp="increseLike" @openModal="modalOpen" />
+   <ModalView v-bind:data="data" :isModal="isModal" :num="selectedNum" @closeModal="closeM" />
 </template>
 
 <script>
 import mdata from '@/assets/mdata';
+import NavbarView from './components/NavbarView.vue';
+import Modal from './components/Modal.vue';
+import ContainerView from './components/ContainerView.vue';
 
 export default {
    name: 'appView',
    data() {
       return {
          data: mdata,
+         isModal: false,
+         selectedNum: 0,
       };
    },
    methods: {
@@ -33,11 +24,23 @@ export default {
          console.log(i);
          this.data[i].like += 1;
       },
+      modalOpen(num) {
+         this.isModal = true;
+         this.selectedNum = num;
+      },
+      closeM() {
+         this.isModal = false;
+      },
+   },
+   components: {
+      NavbarView: NavbarView,
+      ModalView: Modal,
+      ContainerView: ContainerView,
    },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $radius: 5px;
 .container {
    width: 1000px;
@@ -91,7 +94,26 @@ $radius: 5px;
       }
    }
 }
-.mb10 {
-   margin-bottom: 100px !important;
+.mb-10 {
+   margin-bottom: 10px !important;
+}
+
+.btn {
+   background: pink;
+   border-radius: $radius;
+   padding: 5px 16px;
+   text-align: center;
+   cursor: pointer;
+   color: white;
+   border: 0;
+   display: block;
+   width: 100%;
+
+   &.btn-primary {
+      background-color: skyblue;
+   }
+   &.btn-info {
+      background-color: greenyellow;
+   }
 }
 </style>

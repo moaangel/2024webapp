@@ -1,4 +1,5 @@
 <template>
+   <NavbarView/>
    <div class="container">
       <h2>지금, 이 책</h2>
       <swiper :navigation="true" :modules="modules" class="mySwiper">
@@ -26,12 +27,14 @@ import './assets/style.css';
 import { Navigation } from 'swiper/modules';
 import bookdata from './assets/bookdata';
 import BookView from './components/BookView.vue';
+import NavbarView from './components/NavbarView.vue';
 
 export default {
    components: {
       Swiper,
       SwiperSlide,
       BookView: BookView,
+      NavbarView: NavbarView,
    },
    setup() {
       return {

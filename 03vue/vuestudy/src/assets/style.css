@@ -40,9 +40,14 @@ body {
 }
 
 .container {
-   /* width: 1000px; */
+   width: 1370px;
    margin: 0 auto;
-   width: 100%;
+   /* width: 100%; */
+}
+@media screen and (max-width:680px){
+   .container {
+      width: 100%;
+   }
 }
 
 .cardWrap {

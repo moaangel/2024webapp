@@ -2,14 +2,7 @@
   <div>
     <NavbarView />
     <SearchbarView @searchCity="searchCity" />
-    <WeatherView :data="weatherData" />
-
-    <div>
-      <v-btn dark small depressed color="pink" @click="getCurrentPosition()"
-        >위치 좌표 확인</v-btn
-      >
-      <div>{{ isPositionReady ? "yes" : "no" }}</div>
-    </div>
+    <WeatherView :data="weatherData" @child-click="getCurrentPosition"/>
   </div>
 </template>
 
@@ -71,6 +64,19 @@ const getWeather = async () => {
   weatherData.value.city = res.data.name;
 };
 
+const getWeatherCityVer = async () => {
+  const res = await axios.get(
+    `https://api.openweathermap.org/data/2.5/weather?q=${weatherData.value.city}&appid=4eedfeb184dc7cb08af6c0bd529c48b9`
+  );
+  console.log(res.data);
+
+  weatherData.value.icon = res.data.weather[0].icon;
+  weatherData.value.temp = res.data.main.temp;
+  weatherData.value.text = res.data.weather[0].description;
+  weatherData.value.location = res.data.sys.country;
+  weatherData.value.city = res.data.name;
+};
+
 onMounted(() => {
   getWeather();
 });
@@ -78,7 +84,7 @@ onMounted(() => {
 const searchCity = (city) => {
   console.log(city);
   weatherData.value.city = city;
-  getWeather();
+  getWeatherCityVer();
 };
 </script>
 

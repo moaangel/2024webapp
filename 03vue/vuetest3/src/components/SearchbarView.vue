@@ -10,7 +10,6 @@
       <i class="fa-solid fa-magnifying-glass"></i>
     </div>
   </div>
-  {{ inputText }}
 </template>
 
 <script setup>

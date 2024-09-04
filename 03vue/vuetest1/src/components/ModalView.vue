@@ -19,16 +19,19 @@ export default {
       isModal: Boolean,
       num: Number,
    },
+   methods:{
+      const findNum
+   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .modal {
    position: fixed;
-   background-color: rgba(0, 0, 0, 0.5);
-   // opacity: 0.3; //투명도
-   //width: 100%;
-   //height: 100%;
+   background-color: rgba(150, 0, 0, 0.5);
+   //  opacity: 0.3;
+   //  width: 100%;
+   //  height: 100%;
    top: 0;
    left: 0;
    right: 0;
@@ -36,10 +39,11 @@ export default {
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 999;
    .inner {
-      background: white;
-      width: 400px;
-      padding: 10px 16px;
+      background: #fff;
+      width: 500px;
+      padding: 16px 16px;
       border-radius: 5px;
       @media screen and (max-width: 570px) {
          width: 90%;

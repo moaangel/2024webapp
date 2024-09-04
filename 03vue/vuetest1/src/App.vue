@@ -1,14 +1,19 @@
 <template>
    <NavbarView />
-   <ContainerView :data="data" @likeUp="increseLike" @openModal="modalOpen" />
-   <ModalView v-bind:data="data" :isModal="isModal" :num="selectedNum" @closeModal="closeM" />
+   <SearchBarView :data="data_temp" @searchMovie="searchMovie" />
+   <div class="container">
+      <button @click="showAllview">전체보기</button>
+   </div>
+   <CardView :data="data_temp" @openModal="modalOpen" />
+   <ModalView :data="data_temp" :isModal="isModal" :num="selectedNum" @closeModal="isModal = false" />
 </template>
 
 <script>
-import mdata from '@/assets/mdata';
+import mdata from './assets/mdata';
 import NavbarView from './components/NavbarView.vue';
-import Modal from './components/Modal.vue';
-import ContainerView from './components/ContainerView.vue';
+import ModalView from './components/ModalView.vue';
+import CardView from './components/CardView.vue';
+import SearchBarView from './components/SearchBarView.vue';
 
 export default {
    name: 'appView',
@@ -17,6 +22,7 @@ export default {
          data: mdata,
          isModal: false,
          selectedNum: 0,
+         data_temp: [...mdata],
       };
    },
    methods: {
@@ -27,15 +33,26 @@ export default {
       modalOpen(num) {
          this.isModal = true;
          this.selectedNum = num;
+         console.log('view', num);
       },
       closeM() {
          this.isModal = false;
       },
+      searchMovie(title) {
+         console.log('영화이름 : ' + title);
+         this.data_temp = this.data.filter(movie => {
+            return movie.title.includes(title);
+         });
+      },
+      showAllview() {
+         this.data_temp = [...this.data];
+      },
    },
    components: {
       NavbarView: NavbarView,
-      ModalView: Modal,
-      ContainerView: ContainerView,
+      ModalView: ModalView,
+      CardView: CardView,
+      SearchBarView: SearchBarView,
    },
 };
 </script>
@@ -45,6 +62,7 @@ $radius: 5px;
 .container {
    width: 1000px;
    margin: 0 auto;
+
    @media screen and (max-width: 790px) {
       width: 100%;
       padding: 0 16px;
@@ -53,16 +71,19 @@ $radius: 5px;
       display: block;
    }
 }
+
 .cardWrap {
    display: flex;
    flex-wrap: wrap;
    gap: 10px;
    .card {
-      width: calc((100% - 30px) / 4);
+      width: calc((100% - 40px) / 5);
+      // width: 25%;
 
       @media screen and (max-width: 790px) {
          width: calc((100% - 10px) / 2);
       }
+
       @media screen and (max-width: 560px) {
          width: 100%;
       }
@@ -71,8 +92,8 @@ $radius: 5px;
          width: 100%;
          position: relative;
          overflow: hidden;
-         border-radius: $radius;
          cursor: pointer;
+         border-radius: $radius;
          img {
             width: 100%;
             transition: 0.3s;
@@ -85,7 +106,7 @@ $radius: 5px;
             position: absolute;
             top: 10px;
             left: 10px;
-            background: skyblue;
+            background-color: skyblue;
             padding: 2px 10px;
             border-radius: 5px;
             font-weight: bold;
@@ -105,7 +126,7 @@ $radius: 5px;
    text-align: center;
    cursor: pointer;
    color: white;
-   border: 0;
+   border: 0 none;
    display: block;
    width: 100%;
 

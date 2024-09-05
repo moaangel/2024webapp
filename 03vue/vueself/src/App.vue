@@ -1,30 +1,49 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
+  <InformationView />
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <button class="btn">
+      <div class="infoWrap">
+        <p>{{ inforData.title }}</p>
+        <p>{{ inforData.issuedDate }}</p>
+        <p>{{ inforData.category1 }}</p>
+        <p>{{ inforData.information }}</p>
+        <p>{{ inforData.address }}</p>
+      </div>
+    </button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup>
+import { onMounted, ref } from "vue";
+import InformationView from "./components/informationView.vue";
+import axios from "axios";
+
+const inforData = ref({
+  title: "title",
+  issuedDate: "0000",
+  category1: "string",
+  information: "string",
+  address: "string",
+});
+
+const getInfor = async () => {
+  const res = await axios.get(
+    `http://api.kcisa.kr/openapi/API_TOU_052/request?serviceKey=d5237ed0-b813-4eb5-b0b8-0c796a75848d&numOfRows=10&pageNo=1`
+  );
+  console.log(res.data.response.body.items.item[0]);
+  const data1 = res.data.response.body.items.item[0];
+  inforData.value = {
+    title: data1.title,
+    issuedDate: data1.issuedDate,
+    category1: data1.category1,
+    information: data1.information,
+    address: data1.address,
+  };
+};
+
+onMounted(() => {
+  getInfor();
+});
+</script>
+
+<style lang="scss" scoped></style>

@@ -19,9 +19,6 @@ export default {
       isModal: Boolean,
       num: Number,
    },
-   methods:{
-      const findNum
-   }
 };
 </script>
 

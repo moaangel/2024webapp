@@ -1,5 +1,5 @@
 {
-  "name": "vuetest3",
+  "name": "vueproject1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,16 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.7",
     "vue": "^3.4.37",
-    "vue-geolocation-api": "^0.1.21",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.2",
-    "node-sass": "^9.0.0",
     "sass": "^1.78.0",
-    "sass-loader": "^16.0.1",
     "vite": "^5.4.1"
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar flex justify-between h-12">
     <h1 class="my-auto ml-6">LOGO</h1>
-    <ul class="flex my-auto w-1/3 justify-between ">
-      <li><a href="#">MENU1</a></li>
+    <ul class="flex my-auto w-1/3 justify-between">
+      <router-link to="/map" class="nav-link">MENU1</router-link>
       <li><a href="#">MENU2</a></li>
       <li><a href="#">MENU3</a></li>
       <li><a href="#">MENU4</a></li>

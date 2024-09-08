@@ -4,7 +4,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="지점명"
+        placeholder="위치명"
         v-model="userdata.franname"
       />
     </div>
@@ -12,7 +12,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="지점 주소"
+        placeholder="위치 주소"
         v-model="userdata.addr"
       />
     </div>
@@ -21,7 +21,7 @@
         type="text"
         class="form-control"
         placeholder="latitude"
-        v-model="userdata.latitude"
+        v-model="$store.state.mapMove.moveLat"
       />
     </div>
     <div class="mb-3">
@@ -29,7 +29,7 @@
         type="text"
         class="form-control"
         placeholder="longitude"
-        v-model="userdata.longitude"
+        v-model="$store.state.mapMove.moveLng"
       />
     </div>
     <div class="input-group mb-3">
@@ -42,19 +42,17 @@
       />
       <label class="input-group-text" for="fileform">Upload</label>
     </div>
-    <div class="d-flex gap-2">
-      <div class="btn btn-primary" @click="addUser">장소추가</div>
-      <div class="btn btn-primary" @click="modalOpen">지도보기</div>
+    <div class="d-flex gap-2 justify-content-end">
+      <div class="btn btn-outline-secondary" @click="addUser">장소추가</div>
+      <router-link class="btn btn-outline-secondary " to="/user/modal">검색하기</router-link>
     </div>
   </div>
-  <ModalView />
-  {{ userdata }}
+  <!-- <ModalView /> -->
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useStore } from "vuex";
-import ModalView from "../../views/ModalView.vue";
 
 const store = useStore();
 
@@ -74,9 +72,6 @@ const clearform = () => {
     (userdata.value.image = null);
 };
 
-const modalOpen = () => {
-  store.state.isModal = true;
-};
 const addUser = () => {
   let uData = {
     franname: userdata.value.franname,

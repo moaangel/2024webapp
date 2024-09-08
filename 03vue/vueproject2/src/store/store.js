@@ -2,6 +2,11 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    mapMove: {
+      moveLat: 0,
+      moveLng: 0,
+    },
+    isModal: false,
     userData: [
       {
         franname: "스타벅스 종로점",
@@ -28,12 +33,36 @@ export default createStore({
     isModal: false,
   },
   mutations: {
+    mapMoveSet(state, { lat, lng }) {
+      state.mapMove.moveLat = lat;
+      state.mapMove.moveLng = lng;
+    },
     addUser(state, payload) {
       state.userData.push(payload);
     },
     deleteUser(state, payload) {
       state.userData = state.userData.filter((el) => el.franname !== payload);
     },
+    updateUser(state, { index, updatedItem }) {
+      if (index !== -1) {
+        state.userData.splice(index, 1, updatedItem); 
+      }
+    },
   },
-  actions: {},
+  getters: {
+    positions(state) {
+      return state.userData.map((user) => ({
+        title: user.franname,
+        latlng: new kakao.maps.LatLng(user.latitude, user.longitude),
+        image: user.image, 
+      }));
+    },
+    moveLat: (state) => state.moveLat,
+    moveLng: (state) => state.moveLng,
+  },
+  actions: {
+    mapMoveAct({ commit }, { lat, lng }) {
+      commit('mapMoveSet', { lat, lng });
+    },
+  },
 });

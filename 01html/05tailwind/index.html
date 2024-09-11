@@ -1,45 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="utf-8" />
+    <title>Kakao 지도 시작하기</title>
   </head>
   <body>
-    <div class="bg-blue-200 py-3 px-3 md:px-0">
-      <div class="container mx-auto bg-blue-100 flex justify-between">
-        <div
-          class="bg-pink-300 flex justify-center items-center px-3 rounded-sm"
-        >
-          logo
-        </div>
-        <nav class="hidden md:block">
-          <ul class="flex gap-3">
-            <li class="hover:bg-blue-800 rounded-sm">
-              <a href="#" class="hover:text-gray-100 p-2 block">menu1</a>
-            </li>
-            <li class="hover:bg-blue-800 rounded-sm">
-              <a href="#" class="hover:text-gray-100 p-2 block">menu1</a>
-            </li>
-            <li class="hover:bg-blue-800 rounded-sm">
-              <a href="#" class="hover:text-gray-100 p-2 block">menu1</a>
-            </li>
-            <li class="hover:bg-blue-800 rounded-sm">
-              <a href="#" class="hover:text-gray-100 p-2 block">menu1</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="block md:hidden w-10 h-10 bg-gray-300"></div>
-      </div>
-    </div>
+    <div id="map" style="width: 500px; height: 400px"></div>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f096f81f326844f383a7b6dfaa731eb3"
+    ></script>
+    <script>
+      var container = document.getElementById("map");
+      var options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3,
+      };
 
-    <div class="container mx-auto flex gap-2 flex-col">
-      <div class="md:w-1/2 bg-blue-100 hover:drop-shadow-md rounded-sm">
-        1 text
-      </div>
-      <div class="w-full md:w-1/2 bg-pink-100">2</div>
-      <!-- <div class="w-1/2 bg-pink-200">3</div> -->
-    </div>
+      var map = new kakao.maps.Map(container, options);
+    </script>
   </body>
 </html>

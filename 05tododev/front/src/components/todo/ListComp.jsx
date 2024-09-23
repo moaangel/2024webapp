@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getList } from "../../api/todoApi";
 import { useSearchParams } from "react-router-dom";
 import useCustomMove from "../../hooks/useCustomMove";
+import PagerComp from "../common/PagerComp";
 
 const initState = {
   dtoList: [],
@@ -17,7 +18,8 @@ const initState = {
 };
 
 function ListComp() {
-  const { page, size, moveToRead } = useCustomMove();
+  const { page, size, moveToRead, refresh, moveToList, moveToWrite } =
+    useCustomMove();
   const [data, setData] = useState(initState);
   //   const [queryParams] = useSearchParams();
   //   console.log(queryParams.get("size"));
@@ -49,6 +51,19 @@ function ListComp() {
           </div>
         );
       })}
+
+      <div className="flex my-3 justify-end">
+        <button
+          className="bg-blue-200 rounded py-2 px-4 text-white font-bold hover:bg-gray-600"
+          onClick={() => {
+            moveToWrite();
+          }}
+        >
+          글쓰기
+        </button>
+      </div>
+
+      <PagerComp serverData={data} movePage={moveToList} />
     </div>
   );
 }

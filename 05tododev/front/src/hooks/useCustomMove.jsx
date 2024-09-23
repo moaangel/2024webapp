@@ -50,7 +50,27 @@ const useCustomMove = () => {
     });
   };
 
-  return { page, size, moveToList, moveToRead, refresh };
+  const moveToWrite = () => {
+    navigate({
+      pathname: "../add",
+    });
+  };
+
+  const moveToModi = (num) => {
+    navigate({
+      pathname: `../modi/${num}`,
+      search: queryDefault, //page=3&size=10
+    });
+  };
+  return {
+    page,
+    size,
+    moveToList,
+    moveToRead,
+    refresh,
+    moveToWrite,
+    moveToModi,
+  };
 };
 
 export default useCustomMove;
